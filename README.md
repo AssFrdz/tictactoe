@@ -1,73 +1,85 @@
-# React + TypeScript + Vite
+# Tic Tac Toe (React + TypeScript)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application web de jeu du morpion (Tic Tac Toe) développée avec **React**, **TypeScript** et **Vite**.
 
-Currently, two official plugins are available:
+## Aperçu
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Ce projet propose une interface simple et rapide pour jouer au morpion à 2 joueurs (localement), avec :
 
-## React Compiler
+- alternance automatique des tours (`X` / `O`)
+- détection de victoire
+- détection de fin de partie
+- bouton de réinitialisation de la partie
+- interface stylisée avec Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack technique
 
-## Expanding the ESLint configuration
+- **React 19**
+- **TypeScript**
+- **Vite**
+- **Tailwind CSS v4**
+- **ESLint**
+- **gh-pages** (déploiement)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Prérequis
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Node.js** (version récente recommandée, idéalement `20+`)
+- **npm**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Lancer le projet en local
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Puis ouvrir l'URL affichée par Vite (généralement `http://localhost:5173`).
+
+## Scripts disponibles
+
+- `npm run dev` : lance le serveur de développement
+- `npm run build` : compile TypeScript et génère le build de production
+- `npm run preview` : prévisualise localement le build de production
+- `npm run lint` : exécute ESLint
+- `npm run deploy` : déploie le dossier `dist` via `gh-pages`
+
+## Déploiement (GitHub Pages)
+
+Le projet inclut un script de déploiement :
+
+```bash
+npm run build
+npm run deploy
+```
+
+Avant le premier déploiement, vérifiez la configuration GitHub Pages du dépôt et, si nécessaire, la configuration `base` dans Vite.
+
+## Structure du projet
+
+```text
+tictactoe/
+├─ src/
+│  ├─ App.tsx        # logique et interface du jeu
+│  ├─ main.tsx       # point d'entrée React
+│  ├─ index.css      # styles globaux / Tailwind
+│  └─ App.css        # styles complémentaires
+├─ package.json
+└─ README.md
+```
+
+## Pistes d'amélioration
+
+- affichage du joueur courant
+- blocage des cases déjà jouées
+- score cumulatif (X / O)
+- mode joueur vs IA
+- tests unitaires (logique de victoire)
+
+## Auteur
+
+Projet réalisé par **AssFrdz** 
